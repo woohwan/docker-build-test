@@ -1,3 +1,3 @@
 pipeline {
-  agnet { dockerfile true }
+  agent { dockerfile true }
 }
