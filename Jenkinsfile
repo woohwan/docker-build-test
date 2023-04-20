@@ -1,13 +1,14 @@
 pipeline {
-  tools {
-    'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
-  }
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        sh 'docker build .'
-      }
+    agent any
+
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile .")
+                }
+            }
+        }
     }
-  }
 }
+
