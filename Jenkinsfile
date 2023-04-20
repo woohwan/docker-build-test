@@ -1,17 +1,13 @@
 pipeline {
-    agent any
-    environment {
-        tools {
-            tools {
-                'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
-            }
-        }
+    agent  {
+        label 'podman'
     }
+
     stages {
-        stage('Build Docker Image') {
+        stage("build image") {
             steps {
                 script {
-                    docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile .")
+                    sh "podman build -t jenkins-agent ."
                 }
             }
         }
