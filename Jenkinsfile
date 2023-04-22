@@ -1,5 +1,5 @@
 node("kubeagent") {
-    git branch: "*/main", url: "https://github.com/woohwan/docker-build-test.git"
+    git branch: "main", url: "https://github.com/woohwan/docker-build-test.git"
     stage ('kaniko') {
         container('kaniko') {
             script {
