@@ -7,6 +7,7 @@ node("kubeagent") {
                 /kaniko/executor --dockerfile `pwd`/Dockerfile \
                 --context `pwd` \
                 --destination=whpark70/kanio-build:v1
+                '''
             }
          }
      }
